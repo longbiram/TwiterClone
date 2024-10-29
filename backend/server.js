@@ -1,5 +1,6 @@
 import express from 'express';
 import authRoute from './routes/auth.routes.js';
+import postRoute from './routes/post.routes.js';
 import dotenv from 'dotenv';
 import connectMongoDB from './db/connectMongoDB.js';
 import cookieParser from 'cookie-parser';
@@ -32,6 +33,7 @@ app.get("/",(req,res) => {
 //Routes
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
+app.use("/api/posts", postRoute);
 
 app.listen(PORT, () =>{
     console.log(`Server is running at PORT ${PORT}`);
