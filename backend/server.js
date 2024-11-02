@@ -1,12 +1,12 @@
 import express from 'express';
 import authRoute from './routes/auth.routes.js';
 import postRoute from './routes/post.routes.js';
+import notificationRoute from './routes/notification.routes.js';
 import dotenv from 'dotenv';
 import connectMongoDB from './db/connectMongoDB.js';
 import cookieParser from 'cookie-parser';
 import userRoute from './routes/users.routes.js';
 import { v2 as cloudinary } from "cloudinary";
-
 
 dotenv.config();
 
@@ -34,6 +34,7 @@ app.get("/",(req,res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/notifications", notificationRoute);
 
 app.listen(PORT, () =>{
     console.log(`Server is running at PORT ${PORT}`);

@@ -94,7 +94,7 @@ export const login = async (req,res) => {
 
         
     } catch (error) {
-        console.log('Error : '+ error.message);
+        console.log('Error : ', error.message);
         res.status(500).json({error : "Internal Server Error!"});
     }
 };
@@ -104,7 +104,7 @@ export const logout = async (req,res) => {
         res.cookie("jwt","",{maxAge: 0});
         res.status(200).json({message: "Logged Out! Successfully"});
     } catch (error) {
-        console.log('Error : '+ error.message);
+        console.log('Error : ', error.message);
         res.status(500).json({error : "Internal Server Error!"});
     }
 };
@@ -114,7 +114,7 @@ export const getUser = async (req,res) => {
         const user = await User.findById(req.user._id);
         res.status(200).json(user);
     } catch (error) {
-        console.log('Error : '+ error.message);
+        console.log('Error : ', error.message);
         res.status(500).json({error : "Internal Server Error!"});
     }
 }
